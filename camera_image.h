@@ -28,6 +28,17 @@ private:
 	bool flash_enabled;
 public:
 	Camera_image();
+	Camera_image(std::string filename,
+		     std::string type,
+		     std::string date,
+		     double size,
+		     std::string author_name,
+		     double width,
+		     double height,
+		     int aperture_size_denominator,
+		     int exposure_time_denominator,
+		     int iso_value,
+		     bool flash_enabled);
 	void set_filename(std::string filename);
 	std::string get_filename();
 	void set_type(std::string type);

@@ -15,6 +15,47 @@ Camera_image::Camera_image()
 	flash_enabled = false;
 }
 
+Camera_image::Camera_image(std::string filename,
+			   std::string type,
+			   std::string date,
+			   double size,
+			   std::string author_name,
+			   double width,
+			   double height,
+			   int aperture_size_denominator,
+			   int exposure_time_denominator,
+			   int iso_value,
+			   bool flash_enabled)
+{
+	this->filename = filename;
+	if (type == "PNG" || type == "GIF" || type == "JPEG")
+		this->type = type;
+	else
+		this->type = "PNG";
+	this->date = date;
+	if (size >= 0)
+		this->size = size;
+	this->author_name = author_name;
+	if (width > 0)
+		this->width = width;
+	else
+		this->width = 100;
+	if (height > 0)
+		this->height = height;
+	else
+		this->height = 100;
+	if (aperture_size_denominator > 0)
+		this->aperture_size_denominator = aperture_size_denominator;
+	else
+		this->aperture_size_denominator = 8;
+	if (exposure_time_denominator > 0)
+		this->exposure_time_denominator = exposure_time_denominator;
+	else
+		this->exposure_time_denominator = 30;
+	this->iso_value = iso_value;
+	this->flash_enabled = flash_enabled;
+}
+
 void Camera_image::set_filename(std::string name)
 {
 	filename = name;
@@ -27,9 +68,8 @@ std::string Camera_image::get_filename()
 
 void Camera_image::set_type(std::string type)
 {
-	if (type == "PNG" || type == "GIF" || type == "JPEG") {
+	if (type == "PNG" || type == "GIF" || type == "JPEG")
 		this->type = type;
-	}
 }
 
 std::string Camera_image::get_type()
@@ -49,9 +89,8 @@ std::string Camera_image::get_date()
 
 void Camera_image::set_size(double size)
 {
-	if (size >= 0) {
+	if (size >= 0)
 		this->size = size;
-	}
 }
 
 double Camera_image::get_size()
@@ -71,12 +110,10 @@ std::string Camera_image::get_author_name()
 
 void Camera_image::set_dimension(double width, double height)
 {
-	if (width > 0) {
+	if (width > 0)
 		this->width = width;
-	}
-	if (height > 0) {
+	if (height > 0)
 		this->height = height;
-	}
 }
 
 std::string Camera_image::get_dimension()
@@ -86,9 +123,8 @@ std::string Camera_image::get_dimension()
 
 void Camera_image::set_aperture_size(int denominator)
 {
-	if (denominator > 0) {
+	if (denominator > 0)
 		aperture_size_denominator = denominator;
-	}
 }
 
 std::string Camera_image::get_aperture_size()
@@ -98,9 +134,8 @@ std::string Camera_image::get_aperture_size()
 
 void Camera_image::set_exposure_time(int denominator)
 {
-	if (denominator > 0) {
+	if (denominator > 0)
 		exposure_time_denominator = denominator;
-	}
 }
 
 std::string Camera_image::get_exposure_time()
